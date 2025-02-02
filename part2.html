@@ -1,0 +1,44 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>form validation</title>
+    </head>
+    <body>
+       <form onsubmit="Huz()">
+ UserEmail : <input type="Email" id="n1"><br><br>
+ contact: <input type="contact" id="n2"><br><br>
+ Password :        <input type="Password2" id="n3"><br><br>
+ Confirm Password: <input type="Password2" id="n4"><br><br>
+ <input type="submit" value="Submit Your Info" id="">
+
+
+       </form> 
+    </body>
+    <script>
+function Huz(){
+   var a= document.getElementById("n1").value;
+   var b= document.getElementById("n2").value;
+   var c=document.getElementById("n3").value;
+   var d= document.getElementById("n4").value;
+    if(a==""||b==""||c==""||d=="")
+{
+alert('All fields are mandatory');
+}
+else if(b.length<10||b.length>10){
+alert("Number Should be of 10 digits")
+}
+else if(isNaN(b)){
+alert("Number should contain digits only!")
+}
+else if(c!=d){
+alert("Please Enter Same Pasword")
+}
+
+
+}
+
+    </script>
+
+    </html>
