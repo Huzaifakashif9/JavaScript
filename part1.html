@@ -11,18 +11,18 @@
     <button onclick="stop()">stop</button>
     <script>
         
-        for(i = 0; i < 10; i++) {
-         document.write(i,"<br>");}
+        // for(i = 0; i < 10; i++) {
+        //  document.write(i,"<br>");}
 
      var myInterval = null;
     function start(){
-count=1;
+
 var numbervalue = document.getElementById("number")
 myInterval = setInterval(()=>{
 count++;
 numbervalue.innerText = count;
 },1500) }
-
+count=1;
 function stop(){
     clearInterval(myInterval);
 }
