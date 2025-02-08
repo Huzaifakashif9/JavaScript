@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>address</th>
+        <th>age</th>
+        <th>Image</th>
+      </thead>
+
+      <tbody id="mytable"></tbody>
+    </table>
+
+    <script>
+      console.log("start");
+
+      async function getData() {
+        let response = await fetch("https://dummyjson.com/users");
+        let data = response.json();
+        return data;
+      }
+
+      getData()
+        .then((mydata) => {
+          //   console.log(mydata.users[0]);
+          var table = document.getElementById("mytable");
+
+          mydata.users.forEach((myuser) => {
+            // console.log(myuser.firstName);
+            let myRow = ` <tr>
+            <td>${myuser.id}</td>
+            <td>${myuser.firstName}</td>    
+            <td>${myuser.address.country}</td>    
+            <td>${myuser.age}</td> 
+            <td><img src="${myuser.image}" height='100' width='auto'></td>
+            </tr> `;
+
+            table.innerHTML += myRow;
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      console.log("end");
+    </script>
+  </body>
+</html>
